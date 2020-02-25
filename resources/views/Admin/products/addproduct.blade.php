@@ -1,3 +1,6 @@
+@extends('Admin.layouts.app1')
+@section('content')
+
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -93,10 +96,13 @@
 #footer a {
     color: inherit;
 }
+.main{
+    background-color: white;
+}
 </style>
 <!------ Include the above in your HEAD tag ---------->
 
-<section id="login">
+<section id="login" class="main">
     <div class="container">
     	<div class="row">
     	    <div class="col-xs-12">
@@ -112,14 +118,19 @@
                         <div class="form-group">
                             <label for="key" class="sr-only">Password</label>
                             <p>Name</p><input type="text" name="name"  class="form-control" placeholder="name" >
+                            @if($errors->any())<p style="color:red;">{{$errors->first('name')}}</p>@endif
                         </div>
                         <div class="form-group">
                                 <label for="key" class="sr-only">Password</label>
                                 <p>Price</p><input type="text"  name="price"  class="form-control" placeholder="price" >
+                            @if($errors->any())<p style="color:red;">{{$errors->first('price')}}</p>@endif
+
                         </div>
                         <div class="form-group">
                                     <label for="key" class="sr-only">Password</label>
                                     <p>Number</p><input type="text"  name="num"  class="form-control" placeholder="number" >
+                            @if($errors->any())<p style="color:red;">{{$errors->first('num')}}</p>@endif
+
                                 </div>
                         <div class="form-group">
                             <label for="key" class="sr-only">Password</label>
@@ -156,5 +167,6 @@
 		</div> <!-- /.modal-content -->
 	</div> <!-- /.modal-dialog -->
 </div> <!-- /.modal -->
+@endsection
 
 

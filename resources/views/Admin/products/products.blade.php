@@ -1,8 +1,8 @@
-{{-- @extends('Admin.layouts.app1') --}}
-{{-- @section('content') --}}
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+@extends('Admin.layouts.app1')
+@section('content')
+{{-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> --}}
 <style>
     @font-face{
         font-family: "yekan";
@@ -21,14 +21,18 @@
     box-shadow: 3px 3px 0px transparent;
     transition: 0.5s;
     }
+.main{
+    background-color: white;
+}
 </style>
 <!------ Include the above in your HEAD tag ---------->
 <br><br>
 <div>
-<h1 class="text-center">جدول محصولات</h1>
 
 </div>
-<div class="container">
+<div class="container main">
+<h1 class="text-center ">جدول محصولات</h1>
+
     <div class="row col-md-6 col-md-offset-2 custyle">
     <table class="table table-striped custab">
     <thead>
@@ -65,7 +69,7 @@
 
 
         {{-- <td>{{ $product->Images->imagename or 'Default' }}</td> --}}
-        <td class="text-center"><a class='btn btn-info btn-xs' href="{{url('admin/product/'.$product->id.'/edit')}}"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+        <td class="text-center"><a class='btn btn-info btn-xs' href="{{url('admin/product/'.$product->id.'/edit')}}"> Edit</a>
             {{-- <a href="{{ route('admin.product.destroy' , $product->id)}}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a> --}}
             {{-- <br> --}}
             {{-- {{ Form::open(array('route' => array('admin.product.destroy', $product->id), 'method' => 'delete')) }}
@@ -106,4 +110,4 @@
     </div>
 </div>
 
-{{-- @endsection --}}
+@endsection

@@ -216,7 +216,9 @@
                 <div class="col col1">
                     <div class="f_p_item">
                         <div class="f_p_img">
-                            <img class="img-fluid" src="{{isset($product->images[0]->imagename) ? $product->images[0]->imagename : null }}" alt="" style="height:100px;">
+                            {{-- <img class="img-fluid" src="{{isset($product->images[0]->imagename) ? $product->images[0]->imagename : null }}" alt="" style="height:100px;"> --}}
+                            <img class="img-fluid" src="{{$product->photos[0]["name"]}}" alt="" style="height:100px;">
+
                             <div class="p_icon">
                                 <a href="user_favorite">
                                     <i class="lnr lnr-heart"></i>
@@ -226,7 +228,7 @@
                                 </a>
                             </div>
                         </div>
-                        <a href="single_product">
+                        <a href="{{url('single_product/'.$product->id)}}">
                             <h4>{{$product->name}}</h4>
                         </a>
                         <h5>{{$product->price}}</h5>

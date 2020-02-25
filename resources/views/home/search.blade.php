@@ -14,7 +14,7 @@
                 @endif --}}
             <div class="banner_content row">
                 <div class="offset-lg-2 col-lg-8">
-                        <form action="search_result" method="POST">
+                        <form action="{{route('search_result')}}" method="POST">
                                 {{ csrf_field() }}
                                 <input type="text" name="search">
                                 <input type="submit"  value="search">
@@ -23,7 +23,7 @@
                         <br />for every one</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                         aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p> --}}
-                    <a class="white_bg_btn" href="new_product">New Products</a>
+                    {{-- <a class="white_bg_btn" href="new_product">New Products</a> --}}
                 </div>
             </div>
         </div>

@@ -38,6 +38,14 @@ Route::get('/dashboard1', 'HomeController@dashboard1')->name('dashboard1');
 // Route::get('/dashboard1', 'Admin\HomeController@dashboard1')->name('dashboard1');
 Route:: namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
 Route::get('ajaxproductshow','KalaController@ajaxproductshow')->name('products.ajaxproductshow');
+Route::get('ajaxedit','KalaController@ajaxedit')->name('products.ajaxedit');
+Route::get('ajaxupdate','KalaController@ajaxupdate')->name('products.ajaxupdate');
+Route::get('ajaxstore','KalaController@ajaxstore')->name('products.ajaxstore');
+
+
+
+
+Route::get('ajaxproductshow','KalaController@ajaxproductshow')->name('products.ajaxproductshow');
 Route::get('allproductdatatables','KalaController@allproductdatatables')->name('products.allproductdatatables');
 
     Route::resource('/product','kalaController');
@@ -65,8 +73,8 @@ Route::get('/member_home','Home1Controller@index1')->name('member_home');
 Route::get('/best_selling','KalaController@best_selling')->name('best_selling');
 Route::get('/promotion','KalaController@promotion')->name('promotion');
 Route::get('/new_product','KalaController@new_product')->name('new_product');
-Route::get('/single_product','KalaController@single_product')->name('single_product');
-Route::post('/product_review','KalaController@product_review')->name('product_review');
+Route::get('/single_product/{id}','KalaController@single_product')->name('single_product');
+Route::post('/product_review/{id}','KalaController@product_review')->name('product_review');
 
 
 
@@ -103,12 +111,12 @@ Route::get('/brand_category','CategoryController@brand_category')->name('brand_c
 Route::get('/price_category','CategoryController@price_category')->name('price_category');
 
 // =========ShoppingController=========
-Route::get('/cart','ShoppingController@cart')->name('cart');
-Route::get('/add_to_cart','ShoppingController@add_to_cart')->name('add_to_cart');
-Route::get('/checkout','ShoppingController@checkout')->name('checkout');
-Route::post('/confirmation','ShoppingController@confirmation')->name('confirmation');
-Route::get('/tracking_view','ShoppingController@tracking_view')->name('tracking_view');
-Route::post('/tracking','ShoppingController@tracking')->name('tracking');
+Route::get('/cart','Shopping1Controller@cart')->name('cart');
+Route::get('/add_to_cart','Shopping1Controller@add_to_cart')->name('add_to_cart');
+Route::get('/checkout','Shopping1Controller@checkout')->name('checkout');
+Route::post('/confirmation','Shopping1Controller@confirmation')->name('confirmation');
+Route::get('/tracking_view','Shopping1Controller@tracking_view')->name('tracking_view');
+Route::post('/tracking','Shopping1Controller@tracking')->name('tracking');
 
 
 

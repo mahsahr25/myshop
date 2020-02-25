@@ -341,11 +341,11 @@
     <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
-        <div class="pull-right image">
-          <img src="{{asset('Admin/app-assets/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+        <div class="pull-right image" style="height:100px">
+          {{-- <img src="{{asset('Admin/app-assets/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image"> --}}
         </div>
         <div class="pull-right info ">
-          <p>{{Auth::user()->name}}</p>
+          <p><b>{{Auth::user()->name}}</b></p>
           {{-- <a href="#"><i class="fa fa-circle text-success"></i> آنلاین</a> --}}
         </div>
       </div>
@@ -371,7 +371,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="dashboard1"><i class="fa fa-circle-o"></i> داشبرد اول</a></li>
+            <li class="active"><a href="{{route('admin.dashboard1')}}"><i class="fa fa-circle-o"></i> داشبرد اول</a></li>
             <li><a href="dashboard2"><i class="fa fa-circle-o"></i> داشبرد دوم</a></li>
           </ul>
         </li>
@@ -415,6 +415,8 @@
             </a>
             <ul class="treeview-menu">
               <li class="active"><a href="{{Route('admin.product.index')}}"><i class="fa fa-circle-o"></i> مشاهده محصولات</a></li>
+              {{-- <li class="active"><a href="{{Route('admin.products.ajaxproductshow')}}"><i class="fa fa-circle-o"></i> مشاهده محصولات</a></li> --}}
+
               <li class="active"><a href="products_index"><i class="fa fa-circle-o"></i> تصاویر محصولات</a></li>
 
               {{-- <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> کاربران جدید</a></li> --}}

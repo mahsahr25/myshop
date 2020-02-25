@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\tags;
 
 class SiteController extends Controller
 {
@@ -32,9 +33,21 @@ public function search_item(){
 
 
 }
+/**
+     *
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\kala  $kala
+     * @return \Illuminate\Http\Response
+     */
 
-public function search_result(){
-    return view('kala.single_product');
+public function search_result(Request $request){
+    // dd($request->search);
+    $search=$request->search;
+    $tag=tags::whereName($search)->first();
+    // $id=$tag['id'];
+    // dd($tag->kala);
+    return view('home.searchresult',compact(['tag']));
 
 
 }

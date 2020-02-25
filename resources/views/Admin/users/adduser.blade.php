@@ -99,6 +99,7 @@
 .main{
     background-color: white;
 }
+
 </style>
 <!------ Include the above in your HEAD tag ---------->
 
@@ -107,49 +108,53 @@
     	<div class="row">
     	    <div class="col-xs-12">
         	    <div class="form-wrap">
-                <h1>Edit user</h1>
-                    <form role="form" action="{{url('admin/users/'.$user->id)}}" method="post" id="login-form" autocomplete="off" enctype="multipart/form-data">
-                        @method('PUT')
+                <h1>Add user</h1>
+                    <form role="form" action="{{route('admin.users.store')}}" method="post" id="login-form" autocomplete="off" enctype="multipart/form-data">
+                        {{-- @method('PUT') --}}
                         @csrf
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="email" class="sr-only">Id</label>
-                            <p>Id</p><input type="text" name="id"  class="form-control" placeholder="{{$user->id}}" value="{{$user->id}}">
-                        </div>
+                            <p>Id</p><input type="text" name="id"  class="form-control" placeholder="{{$user->id}}" >
+                        </div> --}}
                         <div class="form-group">
                             <label for="key" class="sr-only">Password</label>
-                            <p>Name</p><input type="text" name="name"  class="form-control" placeholder="{{$user->name}}" value="{{$user->name}}">
+                            <p>Name</p><input type="text" name="name"  class="form-control" placeholder="name" >
                             @if($errors->any())<P style="color:red;">{{$errors->first('name')}}</p>@endif
+
                         </div>
                         <div class="form-group">
                                 <label for="key" class="sr-only">Password</label>
-                                <p>Username</p><input type="text"  name="username"  class="form-control" placeholder="{{$user->username}}" value="{{$user->username}}">
+                                <p>Username</p><input type="text"  name="username"  class="form-control" placeholder="username" >
                             @if($errors->any())<P style="color:red;">{{$errors->first('username')}}</p>@endif
 
                         </div>
                         <div class="form-group">
                                     <label for="key" class="sr-only">Password</label>
-                                    <p>Email</p><input type="text"  name="email"  class="form-control" placeholder="{{$user->email}}" value="{{$user->email}}">
+                                    <p>Email</p><input type="text"  name="email"  class="form-control" placeholder="email" >
                             @if($errors->any())<P style="color:red;">{{$errors->first('email')}}</p>@endif
 
                                 </div>
-
                         <div class="form-group">
-                                    <label for="key" class="sr-only">Password</label>
-                                <p>Gender</p><select name="gender" id="" class="form-control">
-                                    @foreach($gender as $gen)
-                                    <option value="{{$gen->id}}"
-                                        @if($user->Gender['name'])
-                                        @if($user->Gender['name']==$gen->name) selected="selected"
-                                        @endif @endif>{{$gen->name}}</option>
-                                    @endforeach
-                                </select>
+                        <label for="key" class="sr-only">Password</label>
+                                    <p>Password</p><input type="password"  name="password"  class="form-control" placeholder="password" >
+                            @if($errors->any())<P style="color:red;">{{$errors->first('password')}}</p>@endif
+
                         </div>
                         {{-- <div class="form-group">
                             <label for="key" class="sr-only">Password</label>
                             <p>Image</p><input type="file" name="imagefile"  class="form-control" >
                         </div> --}}
+                        <div class="form-group">
+                            <label for="key" class="sr-only">Password</label>
+                        <p>Gender</p><select name="gender" id="" class="form-control">
+                            @foreach($gender as $gen)
+                            <option value="{{$gen->id}}"
+                                >{{$gen->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-                        <input type="submit" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Edit">
+                        <input type="submit" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Add">
                     </form>
                     <hr>
         	    </div>

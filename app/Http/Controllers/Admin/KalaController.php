@@ -21,7 +21,7 @@ class KalaController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('Role');
     }
 
     public function index()
@@ -97,6 +97,16 @@ class KalaController extends Controller
      */
 
     public function store(Request $request){
+        $request->validate([
+            'name'=>'required|unique:kala',
+            'price'=>'required|digits_between:1,10',
+
+            'num'=>'required|digits_between:1,10'
+
+
+
+
+        ]);
         $product=new kala;
         $product->name=$request->get('name');
         $product->price=$request->get('price');
@@ -130,6 +140,7 @@ class KalaController extends Controller
 
     public function ajaxstore(Request $request)
     {
+        // dd($request->get('name'));
         $rules=array(
             'name'=>'required',
             'price'=>'required',
@@ -196,6 +207,16 @@ class KalaController extends Controller
     {
         $id=$request->get('id');
         // dd($request->file('imagefile'));
+        $request->validate([
+            'name'=>'required|unique:kala,name,'.$id,
+            'price'=>'required|digits_between:1,10',
+
+            'num'=>'required|digits_between:1,10'
+
+
+
+
+        ]);
 
 
         // dd($id);

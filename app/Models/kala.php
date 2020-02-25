@@ -3,11 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+
+
 
 class kala extends Model
 {
     //
     public $table="kala";
+
+    use Notifiable;
+    protected $fillable = [
+        'name', 'price', 'num',
+    ];
 
     public function Category(){
         return $this->belongsTo('App\Models\category');
@@ -34,5 +42,13 @@ class kala extends Model
 
     public function Reviews(){
         return $this->hasMany('App\Models\reviews');
+    }
+
+    public function Photos(){
+        return $this->morphMany('App\Models\photos','imageable');
+    }
+
+    public function Tags(){
+        return $this->morphtoMany('App\Models\tags','taggable');
     }
 }

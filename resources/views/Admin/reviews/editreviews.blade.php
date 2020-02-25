@@ -1,9 +1,10 @@
+
 @extends('Admin.layouts.app1')
 @section('content')
 
-{{-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> --}}
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <style>
     /*    --------------------------------------------------
 	:: Login Section
@@ -102,52 +103,54 @@
 </style>
 <!------ Include the above in your HEAD tag ---------->
 
-<section id="login" class="main">
+<section id="login"   class="main">
     <div class="container">
     	<div class="row">
     	    <div class="col-xs-12">
         	    <div class="form-wrap">
-                <h1>Edit user</h1>
-                    <form role="form" action="{{url('admin/users/'.$user->id)}}" method="post" id="login-form" autocomplete="off" enctype="multipart/form-data">
+                <h1>Edit Comments</h1>
+                    <form role="form" action="{{url('admin/reviews/'.$comment->id)}}" method="post" id="login-form" autocomplete="off" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="form-group">
                             <label for="email" class="sr-only">Id</label>
-                            <p>Id</p><input type="text" name="id"  class="form-control" placeholder="{{$user->id}}" value="{{$user->id}}">
+                            <p>Id</p><input type="text" name="id"  class="form-control" placeholder="{{$comment->id}}" value="{{$comment->id}}">
                         </div>
                         <div class="form-group">
                             <label for="key" class="sr-only">Password</label>
-                            <p>Name</p><input type="text" name="name"  class="form-control" placeholder="{{$user->name}}" value="{{$user->name}}">
-                            @if($errors->any())<P style="color:red;">{{$errors->first('name')}}</p>@endif
+                            <p>comment</p><input type="text" name="description"  class="form-control" placeholder="{{$comment->description}}" value="{{$comment->description}}">
                         </div>
-                        <div class="form-group">
-                                <label for="key" class="sr-only">Password</label>
-                                <p>Username</p><input type="text"  name="username"  class="form-control" placeholder="{{$user->username}}" value="{{$user->username}}">
-                            @if($errors->any())<P style="color:red;">{{$errors->first('username')}}</p>@endif
-
-                        </div>
-                        <div class="form-group">
-                                    <label for="key" class="sr-only">Password</label>
-                                    <p>Email</p><input type="text"  name="email"  class="form-control" placeholder="{{$user->email}}" value="{{$user->email}}">
-                            @if($errors->any())<P style="color:red;">{{$errors->first('email')}}</p>@endif
-
-                                </div>
-
-                        <div class="form-group">
-                                    <label for="key" class="sr-only">Password</label>
-                                <p>Gender</p><select name="gender" id="" class="form-control">
-                                    @foreach($gender as $gen)
-                                    <option value="{{$gen->id}}"
-                                        @if($user->Gender['name'])
-                                        @if($user->Gender['name']==$gen->name) selected="selected"
-                                        @endif @endif>{{$gen->name}}</option>
-                                    @endforeach
-                                </select>
-                        </div>
+                        {{-- <div class="form-group"> --}}
+                                {{-- <label for="key" class="sr-only">Password</label> --}}
+                                {{-- <p>Price</p><input type="text"  name="price"  class="form-control" placeholder="{{$product->price}}" value="{{$product->price}}"> --}}
+                        {{-- </div> --}}
+                        {{-- <div class="form-group"> --}}
+                                    {{-- <label for="key" class="sr-only">Password</label> --}}
+                                    {{-- <p>Number</p><input type="text"  name="num"  class="form-control" placeholder="{{$product->num}}" value="{{$product->num}}"> --}}
+                                {{-- </div> --}}
                         {{-- <div class="form-group">
                             <label for="key" class="sr-only">Password</label>
                             <p>Image</p><input type="file" name="imagefile"  class="form-control" >
                         </div> --}}
+                        <div class="form-group">
+                                <label for="key" class="sr-only">Password</label>
+                            <p>product name</p><select name="kala" id="" class="form-control">
+                                @foreach($products as $product)
+                                <option value="{{$product->id}}"
+                                    @if($product->name==$comment->kala->name)selected="selected"@endif>{{$product->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                                <label for="key" class="sr-only">Password</label>
+                            <p>User name</p><select name="user" id="" class="form-control">
+                                @foreach($users as $user)
+                                <option value="{{$user->id}}"
+                                    @if($user->name==$comment->users->name)selected="selected"@endif>{{$user->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
                         <input type="submit" id="btn-login" class="btn btn-primary btn-lg btn-block" value="Edit">
                     </form>
@@ -179,6 +182,7 @@
 		</div> <!-- /.modal-content -->
 	</div> <!-- /.modal-dialog -->
 </div> <!-- /.modal -->
+
 @endsection
 
 

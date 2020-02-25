@@ -22,7 +22,8 @@
 	</section>
 	<!--================End Home Banner Area =================-->
 
-	<!--================Single Product Area =================-->
+    <!--================Single Product Area =================-->
+    @foreach($tag->kala as $product)
 	<div class="product_image_area">
 		<div class="container">
 			<div class="row s_product_inner">
@@ -40,7 +41,7 @@
 							<div class="carousel-inner">
                                     {{-- @foreach($product->images as $image) --}}
 
-								<div class="carousel-item active">
+								<div class="carousel-item active" style="width:200px;height:200px;">
 									<img class="d-block w-100" src="{{$product->images[0]->imagename}}" alt="First slide">
                                 </div>
                                 {{-- <div class="carousel-item ">
@@ -99,11 +100,12 @@
 				</div>
 			</div>
 		</div>
-	</div>
+    </div>
+    @endforeach
 	<!--================End Single Product Area =================-->
 
 	<!--================Product Description Area =================-->
-	<section class="product_description_area">
+	{{-- <section class="product_description_area">
 		<div class="container">
 			<ul class="nav nav-tabs" id="myTab" role="tablist">
 				<li class="nav-item">
@@ -135,7 +137,7 @@
 						spouses or grown children leaving for college are all reasons that someone accustomed to cooking for more than one
 						would suddenly need to learn how to adjust all the cooking practices utilized before into a streamlined plan of cooking
 						that is more efficient for one person creating less</p>
-				</div>
+				</div> --}}
 				{{-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 					<div class="table-responsive">
 						<table class="table">
@@ -288,9 +290,9 @@
 						</div>
 					</div>
 				</div> --}}
-				<div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
-					<div class="row">
-						<div class="col-lg-6">
+				{{-- <div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab"> --}}
+					{{-- <div class="row"> --}}
+						{{-- <div class="col-lg-6"> --}}
 							{{-- <div class="row total_rate"> --}}
 								{{-- <div class="col-6">
 									<div class="box_total">
@@ -347,18 +349,18 @@
 									</div> --}}
 								{{-- </div> --}}
 							{{-- </div> --}}
-							<div class="review_list">
+							{{-- <div class="review_list">
                                 @foreach($product->reviews as $review)
 								<div class="review_item">
 									<div class="media">
 										<div class="d-flex">
 											<img src="img/product/single-product/review-1.png" alt="">
 										</div>
-										<div class="media-body">
+										<div class="media-body"> --}}
                                             {{-- <div style="height:70px;width:70px;"> --}}
                                             {{-- <img src="{{isset($review->users->photos['name'])?$review->users->photos['name'] --}}
                                             {{-- // :null}}" alt=""></div> --}}
-                                            @foreach($review->user->photos()->get() as $photo)
+                                            {{-- @foreach($review->user->photos()->get() as $photo)
                                             <div>
                                             <img src="{{$photo['name']}}" alt="" style="width:70px;height:50px;"></div>
                                             @endforeach
@@ -369,14 +371,14 @@
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
 										</div>
-									</div>
+									</div> --}}
 									{{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna --}}
 
                                     {{-- aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p> --}}
 
-                                <p>{{$review['description']}}</p>
+                                {{-- <p>{{$review['description']}}</p>
                                 </div>
-                                @endforeach
+                                @endforeach --}}
 								{{-- <div class="review_item">
 									<div class="media">
 										<div class="d-flex">
@@ -411,7 +413,7 @@
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
 										aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
 								</div> --}}
-							</div>
+							{{-- </div>
 						</div>
 						<div class="col-lg-6">
 							<div class="review_box">
@@ -470,14 +472,14 @@
 									<div class="col-md-12 text-right">
 										<button type="submit" value="submit" class="btn submit_btn">Submit Now</button>
 									</div>
-								</form>
-							</div>
+								</form> --}}
+							{{-- </div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --}}
     <!--================End Product Description Area =================-->
 @endsection
 

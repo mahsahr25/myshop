@@ -63,4 +63,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\reviews','user_id');
 
     }
+    public function Photos(){
+        return $this->morphMany('App\Models\photos','imageable');
+    }
 }

@@ -10,8 +10,8 @@ class Home1Controller extends Controller
     //
     public function index(){
         // dd('hi');
-        $products=kala::orderBy('id','DESC')->get()->take('4');
-        // dd($products);
+        $products=kala::orderBy('id','DESC')->take('5')->get();
+  //       dd($products[0]->photos[0]);
 
         return view('home',compact(['products']));
     }

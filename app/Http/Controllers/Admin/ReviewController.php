@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\reviews;
+use App\Models\kala;
+use App\Models\users;
+
+
 
 class ReviewController extends Controller
 {
@@ -13,6 +17,11 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('Role');
+    }
     public function index()
     {
         $reviews=reviews::all();
@@ -29,6 +38,9 @@ class ReviewController extends Controller
     public function create()
     {
         //
+        $products=kala::all();
+        $users=users::all();
+        return view('admin.reviews.addreviews',compact(['products','users']));
     }
 
     /**
@@ -39,7 +51,18 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comment=new reviews;
+        $comment->description=$request->description;
+        $comment->kala_id=$request->kala;
+        $comment->user_id=$request->user;
+
+        $comment->save();
+
+        $reviews=reviews::all();
+        // dd($reviews);
+
+        return view('admin.reviews.reviews',compact(['reviews']));
+
     }
 
     /**
@@ -61,7 +84,14 @@ class ReviewController extends Controller
      */
     public function edit($id)
     {
-        //
+        // dd($id);
+        $comment=reviews::findorfail($id);
+        // dd($comment->description);
+        // dd($comment->Kala->name);
+        $products=kala::all();
+        $users=users::all();
+        return view('admin.reviews.editreviews',compact(['comment','products','users']));
+
     }
 
     /**
@@ -71,9 +101,22 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        // dd($request->id);
+        $id=$request->id;
+        $comment=reviews::findorfail($id);
+        $comment->description=$request->description;
+        $comment->kala_id=$request->kala;
+        $comment->user_id=$request->user;
+
+        $comment->save();
+
+        $reviews=reviews::all();
+        // dd($reviews);
+
+        return view('admin.reviews.reviews',compact(['reviews']));
+
     }
 
     /**
@@ -84,6 +127,8 @@ class ReviewController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reviews=reviews::find($id);
+        $reviews->delete();
+        return redirect('/admin/reviews');
     }
 }

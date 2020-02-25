@@ -122,7 +122,7 @@ add product
 
 
           ajax: "{{ Route('admin.products.allproductdatatables') }}",
-          
+
           columns: [
                 //    { data: 'id', name: 'id' },
                    { data: 'name', name: 'name' },
@@ -156,14 +156,14 @@ add product
            var method='';
            if($('#action').val()=='Add')
            {
-               action_url="{{route('admin.product.store')}}";
+               action_url="{{route('admin.products.ajaxstore')}}";
                method="POST";
            }
            if($('#action').val()=='Edit')
            {
                var id=$('#hidden_id').val();
 
-            action_url="{{route('admin.product.update',"+id+")}}";
+            action_url="{{route('admin.products.ajaxupdate',"+id+")}}";
             method="PUT";
 
 
@@ -207,7 +207,7 @@ add product
 
            $('#form_result').html('');
            $.ajax({
-               url:"product/"+id+"/edit",
+               url:"products/"+id+"/ajaxedit",
                dataType:"json",
                success:function(data){
                    $('#name').val(data.result.name);
@@ -240,7 +240,7 @@ add product
 
               type:'DELETE',
 
-            url:"product/"+product_id,
+            url:"products/"+product_id,
             //   alert('hi');
               beforeSend:function(){
                   $('#ok_button').text('Deleting...');

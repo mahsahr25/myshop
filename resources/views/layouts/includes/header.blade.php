@@ -250,7 +250,7 @@
 									<hr>
 
 									<li class="nav-item">
-										<a href="cart" class="icons">
+                                        <a href="{{Route('cart')}}" class="icons">
 											<i class="lnr lnr lnr-cart"></i>
 										</a>
 									</li>
