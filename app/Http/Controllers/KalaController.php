@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\kala;
 use App\Models\reviews;
+use App\Models\tags;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use App\User;
@@ -69,5 +70,13 @@ public function product_review(Request $request){
 
     return view('kala.single_product');
 
+}
+
+public function tag_product($name){
+    // dd($name);
+    $tag=tags::whereName($name)->first();
+    // $id=$tag['id'];
+    // dd($tag->kala);
+    return view('home.searchresult',compact(['tag']));
 }
 }

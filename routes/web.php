@@ -75,6 +75,8 @@ Route::get('/promotion','KalaController@promotion')->name('promotion');
 Route::get('/new_product','KalaController@new_product')->name('new_product');
 Route::get('/single_product/{id}','KalaController@single_product')->name('single_product');
 Route::post('/product_review/{id}','KalaController@product_review')->name('product_review');
+Route::get('/tag_product/{id}','KalaController@tag_product')->name('tag_product');
+
 
 
 

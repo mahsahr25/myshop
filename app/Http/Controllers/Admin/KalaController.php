@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Models\kala;
 use App\Models\images;
+use App\Models\photos;
+
 
 use DataTables;
 use Validator;
@@ -128,6 +130,10 @@ class KalaController extends Controller
         $image = new Images();
     $image->imagename = $imagename;
     $product->images()->save($image);
+
+    $photo=new Photos();
+    $photo->name=$imagename;
+    $product->photos()->save($photo);
 
         }
         $products=kala::all();

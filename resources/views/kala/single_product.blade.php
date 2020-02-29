@@ -73,7 +73,14 @@
 							</li>
 						</ul> --}}
 						<p>Mill Oil is an innovative oil filled radiator with the most modern technology. If you are looking for something that
-							can make your interior look awesome, and at the same time give you the pleasant warm feeling during the winter.</p>
+                            can make your interior look awesome, and at the same time give you the pleasant warm feeling during the winter.</p>
+{{-- ==============   tags ============ --}}
+                            <div>
+                    @foreach($product->tags as $tag)
+                    {{-- <p>{{$tag->name}}</p> --}}
+                    <span class="badge badge-info p-2"><a href="{{url('tag_product/'.$tag->name)}}" style="decoration:none;color:white;">{{$tag->name}}</a></span>
+                    @endforeach
+</div><br><br>
 						<div class="product_count">
 							<label for="qty">Quantity:</label>
 							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
@@ -287,7 +294,8 @@
 							</div>
 						</div>
 					</div>
-				</div> --}}
+                </div> --}}
+
 				<div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
 					<div class="row">
 						<div class="col-lg-6">
@@ -363,16 +371,17 @@
                                             <img src="{{$photo['name']}}" alt="" style="width:70px;height:50px;"></div>
                                             @endforeach
 											<h4>{{$review->user['name']}}</h4>
+											{{-- <i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i> --}}
 										</div>
 									</div>
 									{{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna --}}
 
                                     {{-- aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p> --}}
+
 
                                 <p>{{$review['description']}}</p>
                                 </div>
